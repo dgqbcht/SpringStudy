@@ -2,9 +2,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--For TestPerson1-->
     <bean id="person1" name="p1,pp1" class="org.dgqbcht.springstudy.bean.Person1" />
     <bean name="p2,pp2" class="org.dgqbcht.springstudy.bean.Person1" />
-
+    <!--For TestPerson2-->
     <bean id="person2" class="org.dgqbcht.springstudy.bean.Person2">
         <property name="myByte">
             <value>1</value>
@@ -36,7 +37,51 @@
     </bean>
     <bean id="person2_new" class="org.dgqbcht.springstudy.bean.Person2"
           p:myByte="7" p:myShort="8" p:myInt="9" p:myLong="10"
-          p:myFloat="11.0" p:myDouble="12.0" p:myChar="e" p:myBoolean="true" p:myString="hehe"
-    />
+          p:myFloat="11.0" p:myDouble="12.0" p:myChar="e" p:myBoolean="true" p:myString="hehe" />
+    <!--For TestPerson3-->
+    <bean id="person3" class="org.dgqbcht.springstudy.bean.Person3">
+        <property name="strings">
+            <list>
+                <value>First string</value>
+                <value>Second string</value>
+            </list>
+        </property>
+        <property name="set">
+            <set>
+                <value>element 2</value>
+                <value>element 1</value>
+                <value>element 2</value>
+            </set>
+        </property>
+        <property name="list">
+            <list>
+                <value>element 2</value>
+                <value>element 1</value>
+                <value>element 2</value>
+            </list>
+        </property>
+        <property name="map">
+            <map>
+                <entry>
+                    <key><value>key 1</value></key>
+                    <value>value 1</value>
+                </entry>
+                <entry>
+                    <key><value>key 2</value></key>
+                    <value>value 2</value>
+                </entry>
+            </map>
+        </property>
+        <property name="props">
+            <props>
+                <prop key="Key 1">Value 1</prop>
+                <prop key="Key 1">Value 2</prop>
+            </props>
+        </property>
+        <property name="person2">
+            <ref bean="person2_new" />
+        </property>
+    </bean>
+    <bean id="person3_new" class="org.dgqbcht.springstudy.bean.Person3" p:person2-ref="person2" />
 
 </beans>

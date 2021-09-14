@@ -7,7 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class TestPerson2 {
 
     /**
-     * 测试用property标签注入属性值
+     * 测试用property标签注入属性值。
      */
     @Test
     public void testInjection() {
@@ -17,7 +17,7 @@ public class TestPerson2 {
     }
 
     /**
-     * 测试用bean属性注入属性值
+     * 测试用命名空间p:注入属性值。
      */
     @Test
     public void testInjection2() {

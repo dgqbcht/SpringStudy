@@ -27,7 +27,7 @@ public class TestPerson1 {
     }
 
     /**
-     * 测试用bean的name创建实例
+     * 测试用bean的name创建实例。
      */
     @Test
     public void testGetBeanByName(){
