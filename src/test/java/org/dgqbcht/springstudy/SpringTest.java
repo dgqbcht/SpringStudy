@@ -21,7 +21,7 @@ public class SpringTest {
      * 测试注入bean属性
      */
     @Test
-    public void test(){
+    public void testInjection(){
         ApplicationContext context = new ClassPathXmlApplicationContext("/applicationContext.xml");
         Person person = (Person) context.getBean("person");
 //        通过代码赋值，存在耦合
