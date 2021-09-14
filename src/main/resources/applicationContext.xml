@@ -83,5 +83,24 @@
         </property>
     </bean>
     <bean id="person3_new" class="org.dgqbcht.springstudy.bean.Person3" p:person2-ref="person2" />
+    <!--For TestPerson4-->
+    <bean id="person4" class="org.dgqbcht.springstudy.bean.Person4">
+        <constructor-arg>
+            <value>zhangsan</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value>10</value>
+        </constructor-arg>
+    </bean>
+    <bean id="person4_s" class="org.dgqbcht.springstudy.bean.Person4">
+        <constructor-arg type="java.lang.String">
+            <value>zhangsan</value>
+        </constructor-arg>
+    </bean>
+    <bean id="person4_i" class="org.dgqbcht.springstudy.bean.Person4">
+        <constructor-arg type="long">
+            <value>10</value>
+        </constructor-arg>
+    </bean>
 
 </beans>
