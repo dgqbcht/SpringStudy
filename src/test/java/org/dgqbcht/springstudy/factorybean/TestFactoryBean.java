@@ -17,6 +17,7 @@ public class TestFactoryBean {
         //直接调用bean的id，得到复杂对象。
         Connection conn = (Connection) context.getBean("conn1");
         System.out.println("conn = " + conn);
+        //想获得FactoryBean，在id前加&符号。
         MySQLConnectionFactoryBean factoryBean = (MySQLConnectionFactoryBean) context.getBean("&conn1");
         System.out.println("factoryBean = " + factoryBean);
         //singleton = false，每次会创建新的实例。
