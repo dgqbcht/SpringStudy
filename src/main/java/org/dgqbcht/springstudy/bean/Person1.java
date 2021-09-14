@@ -1,5 +1,8 @@
 package org.dgqbcht.springstudy.bean;
 
+/**
+ * 用工厂生产实例。
+ */
 public class Person1 {
 
     /**
