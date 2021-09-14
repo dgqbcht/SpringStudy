@@ -8,6 +8,9 @@ public class TestPerson4 {
 
     /**
      * 测试使用构造器进行注入
+     * 反向控制：所谓IoC，就是把对于成员变量赋值的控制权，从代码中反转(转移)到Spring工厂和配置文件中完成。
+     * 好处：解耦合
+     * 底层实现：工厂设计模式
      */
     @Test
     public void testConstructor() {

@@ -7,33 +7,15 @@
     <bean name="p2,pp2" class="org.dgqbcht.springstudy.bean.Person1" />
     <!--For TestPerson2-->
     <bean id="person2" class="org.dgqbcht.springstudy.bean.Person2">
-        <property name="myByte">
-            <value>1</value>
-        </property>
-        <property name="myShort">
-            <value>2</value>
-        </property>
-        <property name="myInt">
-            <value>3</value>
-        </property>
-        <property name="myLong">
-            <value>4</value>
-        </property>
-        <property name="myFloat">
-            <value>5.0</value>
-        </property>
-        <property name="myDouble">
-            <value>6.0</value>
-        </property>
-        <property name="myChar">
-            <value>C</value>
-        </property>
-        <property name="myBoolean">
-            <value>false</value>
-        </property>
-        <property name="myString">
-            <value>haha</value>
-        </property>
+        <property name="myByte" value="1"/>
+        <property name="myShort" value="2"/>
+        <property name="myInt" value="3"/>
+        <property name="myLong" value="4"/>
+        <property name="myFloat" value="5.0"/>
+        <property name="myDouble" value="6.0"/>
+        <property name="myChar" value="C"/>
+        <property name="myBoolean" value="false"/>
+        <property name="myString" value="haha"/>
     </bean>
     <bean id="person2_new" class="org.dgqbcht.springstudy.bean.Person2"
           p:myByte="7" p:myShort="8" p:myInt="9" p:myLong="10"
@@ -62,14 +44,8 @@
         </property>
         <property name="map">
             <map>
-                <entry>
-                    <key><value>key 1</value></key>
-                    <value>value 1</value>
-                </entry>
-                <entry>
-                    <key><value>key 2</value></key>
-                    <value>value 2</value>
-                </entry>
+                <entry key="key 1" value="value 1"/>
+                <entry key="key 2" value="value 2"/>
             </map>
         </property>
         <property name="props">
@@ -78,29 +54,33 @@
                 <prop key="Key 1">Value 2</prop>
             </props>
         </property>
-        <property name="person2">
-            <ref bean="person2_new" />
-        </property>
+        <property name="person2" ref="person2_new"/>
     </bean>
     <bean id="person3_new" class="org.dgqbcht.springstudy.bean.Person3" p:person2-ref="person2" />
     <!--For TestPerson4-->
     <bean id="person4" class="org.dgqbcht.springstudy.bean.Person4">
-        <constructor-arg>
-            <value>zhangsan</value>
-        </constructor-arg>
-        <constructor-arg>
-            <value>10</value>
-        </constructor-arg>
+        <constructor-arg value="zhangsan"/>
+        <constructor-arg value="10"/>
     </bean>
     <bean id="person4_s" class="org.dgqbcht.springstudy.bean.Person4">
-        <constructor-arg type="java.lang.String">
-            <value>zhangsan</value>
-        </constructor-arg>
+        <constructor-arg type="java.lang.String" value="zhangsan"/>
     </bean>
     <bean id="person4_i" class="org.dgqbcht.springstudy.bean.Person4">
-        <constructor-arg type="long">
-            <value>10</value>
-        </constructor-arg>
+        <constructor-arg type="long" value="10"/>
     </bean>
+    <!--For TestFactoryBean-->
+    <bean id="conn1" class="org.dgqbcht.springstudy.factorybean.MySQLConnectionFactoryBean" >
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/study?useSSL=false" />
+        <property name="username" value="root" />
+        <property name="password" value="111111" />
+    </bean>
+    <bean id="connFactory" class="org.dgqbcht.springstudy.factorybean.MySQLConnectionFactory" />
+    <bean id="conn2" class="org.dgqbcht.springstudy.factorybean.MySQLStaticConnectionFactory"
+        factory-method="getConnection" />
+    <bean id="conn3" class="org.dgqbcht.springstudy.factorybean.MySQLStaticConnectionFactory"
+          factory-method="getConnection"/>
+    <bean id="conn4" class="org.dgqbcht.springstudy.factorybean.MySQLStaticConnectionFactory"
+          factory-method="getConnection" scope="prototype" />
 
 </beans>
