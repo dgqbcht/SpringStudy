@@ -2,12 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="person" class="org.dgqbcht.springstudy.pojo.Person" >
-        <property name="id">
-            <value>10</value>
-        </property>
-        <property name="name">
-            <value>Hongtao</value>
-        </property>
-    </bean>
+    <bean id="person1" name="p1,pp1" class="org.dgqbcht.springstudy.bean.Person1" />
+    <bean name="p2,pp2" class="org.dgqbcht.springstudy.bean.Person1" />
+
 </beans>
