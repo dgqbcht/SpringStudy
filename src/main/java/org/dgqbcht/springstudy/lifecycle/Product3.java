@@ -1,4 +1,4 @@
-package org.dgqbcht.springstudy.life;
+package org.dgqbcht.springstudy.lifecycle;
 
 /**
  * 用于演示对象创建时机。

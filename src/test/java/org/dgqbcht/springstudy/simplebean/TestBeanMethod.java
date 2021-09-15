@@ -1,17 +1,26 @@
-package org.dgqbcht.springstudy.bean;
+package org.dgqbcht.springstudy.simplebean;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class TestPerson1 {
+public class TestBeanMethod {
+    private static ApplicationContext context;
+
+    /**
+     * 提前配置Spring的ApplicationContext
+     */
+    @BeforeClass
+    public static void beforeClass() {
+        context = new ClassPathXmlApplicationContext("/applicationContextBeanMethod.xml");
+    }
 
     /**
      * 测试用bean的id创建实例，需要强制转换类型。
      */
     @Test
     public void testGetBeanById(){
-        ApplicationContext context = new ClassPathXmlApplicationContext("/applicationContext.xml");
         Person1 person = (Person1) context.getBean("person1");
         System.out.println("person = " + person);
     }
@@ -21,7 +30,6 @@ public class TestPerson1 {
      */
     @Test
     public void testGetBeanById2(){
-        ApplicationContext context = new ClassPathXmlApplicationContext("/applicationContext.xml");
         Person1 person = context.getBean("person1", Person1.class);
         System.out.println("person = " + person);
     }
@@ -31,7 +39,6 @@ public class TestPerson1 {
      */
     @Test
     public void testGetBeanByName(){
-        ApplicationContext context = new ClassPathXmlApplicationContext("/applicationContext.xml");
         Person1 person = (Person1) context.getBean("p1");
         System.out.println("person = " + person);
         Person1 person2 = (Person1) context.getBean("pp1");
@@ -43,7 +50,6 @@ public class TestPerson1 {
      */
     @Test
     public void testContainsBeanDefinition(){
-        ApplicationContext context = new ClassPathXmlApplicationContext("/applicationContext.xml");
         //用id定义过person1
         boolean contains = context.containsBeanDefinition("person1");
         System.out.println("contains person1 = " + contains);
@@ -66,7 +72,6 @@ public class TestPerson1 {
      */
     @Test
     public void testContainsBean(){
-        ApplicationContext context = new ClassPathXmlApplicationContext("/applicationContext.xml");
         //用id定义过person1
         boolean contains = context.containsBean("person1");
         System.out.println("contains person1 = " + contains);
@@ -83,7 +88,5 @@ public class TestPerson1 {
         contains = context.containsBean("pp2");
         System.out.println("contains pp2 = " + contains);
     }
-
-
 
 }

@@ -1,4 +1,4 @@
-package org.dgqbcht.springstudy.bean;
+package org.dgqbcht.springstudy.simplebean;
 
 /**
  * 使用构造器进行注入

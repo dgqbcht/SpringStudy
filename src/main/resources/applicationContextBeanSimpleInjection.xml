@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="person2" class="org.dgqbcht.springstudy.simplebean.Person2">
+        <property name="myByte" value="1"/>
+        <property name="myShort" value="2"/>
+        <property name="myInt" value="3"/>
+        <property name="myLong" value="4"/>
+        <property name="myFloat" value="5.0"/>
+        <property name="myDouble" value="6.0"/>
+        <property name="myChar" value="C"/>
+        <property name="myBoolean" value="false"/>
+        <property name="myString" value="haha"/>
+    </bean>
+    <bean id="person2_new" class="org.dgqbcht.springstudy.simplebean.Person2"
+          p:myByte="7" p:myShort="8" p:myInt="9" p:myLong="10"
+          p:myFloat="11.0" p:myDouble="12.0" p:myChar="e" p:myBoolean="true" p:myString="hehe" />
+</beans>

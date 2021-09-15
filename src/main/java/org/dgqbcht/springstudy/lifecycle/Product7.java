@@ -1,7 +1,6 @@
-package org.dgqbcht.springstudy.life;
+package org.dgqbcht.springstudy.lifecycle;
 
 import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.InitializingBean;
 
 /**
  * 用于演示对象销毁。
@@ -19,7 +18,7 @@ public class Product7 implements DisposableBean {
      * spring检测到实现了DisposableBean接口，销毁时会自动调用该方法。
      */
     @Override
-    public void destroy() throws Exception {
+    public void destroy() {
         System.out.println("Product7 destroy method invoked.");
 
     }

@@ -1,12 +1,15 @@
-package org.dgqbcht.springstudy.factorybean;
+package org.dgqbcht.springstudy.complexbean;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class MySQLStaticConnectionFactory {
+/**
+ * 实例工厂类，模拟遗留系统问题。
+ */
+public class MySQLConnectionFactory {
 
-    public static Connection getConnection(){
+    public Connection getConnection(){
         Connection conn = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -15,6 +18,5 @@ public class MySQLStaticConnectionFactory {
             e.printStackTrace();
         }
         return conn;
-
     }
 }

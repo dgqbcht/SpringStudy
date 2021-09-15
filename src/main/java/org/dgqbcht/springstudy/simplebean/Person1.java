@@ -1,4 +1,4 @@
-package org.dgqbcht.springstudy.bean;
+package org.dgqbcht.springstudy.simplebean;
 
 /**
  * 用工厂生产实例。

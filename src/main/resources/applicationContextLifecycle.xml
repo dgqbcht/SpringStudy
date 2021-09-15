@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="product1" class="org.dgqbcht.springstudy.lifecycle.Product1" />
+    <bean id="product2" class="org.dgqbcht.springstudy.lifecycle.Product2" scope="prototype" />
+    <bean id="product3" class="org.dgqbcht.springstudy.lifecycle.Product3" lazy-init="true" />
+    <bean id="product4" class="org.dgqbcht.springstudy.lifecycle.Product4" />
+    <bean id="product5" class="org.dgqbcht.springstudy.lifecycle.Product5" init-method="init" />
+    <bean id="product6" class="org.dgqbcht.springstudy.lifecycle.Product6" init-method="init" >
+        <property name="name" value="Chen" />
+    </bean>
+    <bean id="product7" class="org.dgqbcht.springstudy.lifecycle.Product7" destroy-method="dispose" />
+
+</beans>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="conn1" class="org.dgqbcht.springstudy.complexbean.MySQLConnectionFactoryBean" scope="prototype">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/study?useSSL=false" />
+        <property name="username" value="root" />
+        <property name="password" value="111111" />
+    </bean>
+    <bean id="connFactory" class="org.dgqbcht.springstudy.complexbean.MySQLConnectionFactory" />
+    <bean id="conn2" class="org.dgqbcht.springstudy.complexbean.MySQLStaticConnectionFactory"
+        factory-method="getConnection" scope="prototype" />
+    <bean id="conn3" class="org.dgqbcht.springstudy.complexbean.MySQLStaticConnectionFactory"
+          factory-method="getConnection"/>
+    <bean id="conn4" class="org.dgqbcht.springstudy.complexbean.MySQLStaticConnectionFactory"
+          factory-method="getConnection" scope="prototype" />
+
+
+</beans>

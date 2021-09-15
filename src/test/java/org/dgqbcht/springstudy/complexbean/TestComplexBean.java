@@ -1,19 +1,28 @@
-package org.dgqbcht.springstudy.factorybean;
+package org.dgqbcht.springstudy.complexbean;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.sql.Connection;
 
-public class TestFactoryBean {
+public class TestComplexBean {
+    private static ApplicationContext context;
+
+    /**
+     * 提前配置Spring的ApplicationContext
+     */
+    @BeforeClass
+    public static void beforeClass() {
+        context = new ClassPathXmlApplicationContext("/applicationContextComplexBean.xml");
+    }
 
     /**
      * 测试使用FactoryBean，注入复杂对象。
      */
     @Test
     public void testFactoryBean() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("/applicationContext.xml");
         //直接调用bean的id，得到复杂对象。
         Connection conn = (Connection) context.getBean("conn1");
         System.out.println("conn = " + conn);
@@ -30,7 +39,6 @@ public class TestFactoryBean {
      */
     @Test
     public void testFactory() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("/applicationContext.xml");
         MySQLConnectionFactory connFactory = (MySQLConnectionFactory) context.getBean("connFactory");
         System.out.println("connFactory = " + connFactory);
     }
@@ -40,7 +48,6 @@ public class TestFactoryBean {
      */
     @Test
     public void testStaticFactory() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("/applicationContext.xml");
         //静态方法名要写在bean的属性里，factory-method="getConnection"。
         Connection conn = (Connection) context.getBean("conn2");
         System.out.println("conn = " + conn);
@@ -51,7 +58,6 @@ public class TestFactoryBean {
      */
     @Test
     public void testScope() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("/applicationContext.xml");
         //使用scope="singleton"，默认可以不写。
         Connection conn = (Connection) context.getBean("conn3");
         System.out.println("conn = " + conn);

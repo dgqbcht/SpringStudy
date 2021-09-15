@@ -1,4 +1,4 @@
-package org.dgqbcht.springstudy.factorybean;
+package org.dgqbcht.springstudy.complexbean;
 
 import java.sql.Connection;
 import org.springframework.beans.factory.FactoryBean;

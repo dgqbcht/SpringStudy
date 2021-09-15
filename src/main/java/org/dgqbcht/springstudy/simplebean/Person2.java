@@ -1,4 +1,4 @@
-package org.dgqbcht.springstudy.bean;
+package org.dgqbcht.springstudy.simplebean;
 
 /**
  * 注入8种原生数据类型+String

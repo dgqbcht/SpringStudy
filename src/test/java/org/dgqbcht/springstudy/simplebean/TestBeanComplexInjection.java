@@ -1,17 +1,26 @@
-package org.dgqbcht.springstudy.bean;
+package org.dgqbcht.springstudy.simplebean;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class TestPerson3 {
+public class TestBeanComplexInjection {
+    private static ApplicationContext context;
+
+    /**
+     * 提前配置Spring的ApplicationContext
+     */
+    @BeforeClass
+    public static void beforeClass() {
+        context = new ClassPathXmlApplicationContext("/applicationContextBeanComplexInjection.xml");
+    }
 
     /**
      * 测试注入集合类型与自定义类型，使用property标签。
      */
     @Test
     public void testCustomInjection() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("/applicationContext.xml");
         Person3 person3 = (Person3) context.getBean("person3");
         System.out.println("person3 = " + person3);
     }
@@ -21,7 +30,6 @@ public class TestPerson3 {
      */
     @Test
     public void testCustomInjection2() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("/applicationContext.xml");
         Person3 person3 = (Person3) context.getBean("person3_new");
         System.out.println("person3 = " + person3);
     }
