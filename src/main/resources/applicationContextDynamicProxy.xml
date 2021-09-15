@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="user" class="org.dgqbcht.springstudy.dynamicproxy.User">
+        <property name="id" value="1"/>
+        <property name="username" value="chenht"/>
+        <property name="password" value="666666"/>
+    </bean>
+    <bean id="userService" class="org.dgqbcht.springstudy.dynamicproxy.UserServiceImpl"/>
+    <bean id="beforeProxy" class="org.dgqbcht.springstudy.dynamicproxy.DynamicBeforeProxy" />
+
+    <aop:config>
+        <aop:pointcut id="pointcut" expression="execution(* *(..))"/>
+        <aop:advisor advice-ref="beforeProxy" pointcut-ref="pointcut"/>
+    </aop:config>
+
+</beans>
