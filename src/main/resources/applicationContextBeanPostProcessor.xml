@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="person" class="org.dgqbcht.springstudy.beanpostprocessor.Person" lazy-init="true" init-method="init">
+        <property name="name" value="chen"/>
+    </bean>
+    <bean id="product" class="org.dgqbcht.springstudy.beanpostprocessor.Product" lazy-init="true">
+        <property name="name" value="CPU"/>
+        <property name="price" value="499.99"/>
+    </bean>
+
+    <bean id="beanPostProcessor" class="org.dgqbcht.springstudy.beanpostprocessor.MyBeanPostProcessor"/>
+
+</beans>
