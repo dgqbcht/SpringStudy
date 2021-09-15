@@ -2,7 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <!--For TestPerson1-->
+
     <bean id="person1" name="p1,pp1" class="org.dgqbcht.springstudy.simplebean.Person1" />
     <bean name="p2,pp2" class="org.dgqbcht.springstudy.simplebean.Person1" />
 </beans>
