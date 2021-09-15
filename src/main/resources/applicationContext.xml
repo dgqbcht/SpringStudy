@@ -69,7 +69,7 @@
         <constructor-arg type="long" value="10"/>
     </bean>
     <!--For TestFactoryBean-->
-    <bean id="conn1" class="org.dgqbcht.springstudy.factorybean.MySQLConnectionFactoryBean" >
+    <bean id="conn1" class="org.dgqbcht.springstudy.factorybean.MySQLConnectionFactoryBean" scope="prototype">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/study?useSSL=false" />
         <property name="username" value="root" />
@@ -77,10 +77,20 @@
     </bean>
     <bean id="connFactory" class="org.dgqbcht.springstudy.factorybean.MySQLConnectionFactory" />
     <bean id="conn2" class="org.dgqbcht.springstudy.factorybean.MySQLStaticConnectionFactory"
-        factory-method="getConnection" />
+        factory-method="getConnection" scope="prototype" />
     <bean id="conn3" class="org.dgqbcht.springstudy.factorybean.MySQLStaticConnectionFactory"
           factory-method="getConnection"/>
     <bean id="conn4" class="org.dgqbcht.springstudy.factorybean.MySQLStaticConnectionFactory"
           factory-method="getConnection" scope="prototype" />
+    <!--For TestLife-->
+    <bean id="product1" class="org.dgqbcht.springstudy.life.Product1" />
+    <bean id="product2" class="org.dgqbcht.springstudy.life.Product2" scope="prototype" />
+    <bean id="product3" class="org.dgqbcht.springstudy.life.Product3" lazy-init="true" />
+    <bean id="product4" class="org.dgqbcht.springstudy.life.Product4" />
+    <bean id="product5" class="org.dgqbcht.springstudy.life.Product5" init-method="init" />
+    <bean id="product6" class="org.dgqbcht.springstudy.life.Product6" init-method="init" >
+        <property name="name" value="Chen" />
+    </bean>
+    <bean id="product7" class="org.dgqbcht.springstudy.life.Product7" destroy-method="dispose" />
 
 </beans>
