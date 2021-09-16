@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class TestDynamicProxy {
+public class TestProxyBeanPostProcessor {
     private static ApplicationContext context;
 
     /**
@@ -13,19 +13,16 @@ public class TestDynamicProxy {
      */
     @BeforeClass
     public static void beforeClass() {
-        context = new ClassPathXmlApplicationContext("/applicationContextDynamicProxy.xml");
+        context = new ClassPathXmlApplicationContext("/applicationContextProxyBeanPostProcessor.xml");
     }
 
     /**
-     * 测试动态代理的MethodBeforeAdvice
+     * 测试模拟Spring框架生产动态代理
      */
     @Test
-    public void testBeforeAdvisor() {
-        UserService service =(UserService) context.getBean("userService");
-        User user = (User)context.getBean("user");
-        service.register(user);
-        service.login("zhangsan","123456");
-
+    public void testProxyBeanPostProcessor() {
+        UserService userService = (UserService) context.getBean("userService1");
+        userService.login("zhangsan","123456");
+        userService.register(new User());
     }
-
 }
