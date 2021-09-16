@@ -10,9 +10,22 @@
     </bean>
     <bean id="userService" class="org.dgqbcht.springstudy.dynamicproxy.UserServiceImpl"/>
     <bean id="beforeProxy" class="org.dgqbcht.springstudy.dynamicproxy.DynamicBeforeProxy" />
+    <!--
+        切入点函数:
+            execution() 功能最全的匹配 写法较复杂
+            修饰符 返回值 全限定名.方法(参数类型列表)
+            *表示通配所有
+            .表示一级子包
+            ..表示多级子包
 
+            args() 匹配方法的参数
+            within() 匹配类、包
+            @annotation() 匹配有特殊注解的方法
+            不同种切入点函数，可使用and进行逻辑与操作。
+            同种或不同种切入点函数，可使用or进行逻辑或操作。
+    -->
     <aop:config>
-        <aop:pointcut id="pointcut" expression="execution(* *(..))"/>
+        <aop:pointcut id="pointcut" expression="execution(* org..UserServiceImpl.*(..))"/>
         <aop:advisor advice-ref="beforeProxy" pointcut-ref="pointcut"/>
     </aop:config>
 
