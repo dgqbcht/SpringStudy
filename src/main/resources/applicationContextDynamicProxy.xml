@@ -5,8 +5,8 @@
 
     <bean id="user" class="org.dgqbcht.springstudy.dynamicproxy.User">
         <property name="id" value="1"/>
-        <property name="username" value="chenht"/>
-        <property name="password" value="666666"/>
+        <property name="username" value="zhangsan"/>
+        <property name="password" value="123456"/>
     </bean>
     <bean id="userService" class="org.dgqbcht.springstudy.dynamicproxy.UserServiceImpl"/>
     <bean id="beforeProxy" class="org.dgqbcht.springstudy.dynamicproxy.DynamicBeforeProxy" />

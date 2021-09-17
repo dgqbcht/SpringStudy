@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
- * 底层使用Java反射实现动态代理。
+ * 底层使用JDK现动态代理。
  */
 public class JDKProxy {
     public static void main(String[] args) {
