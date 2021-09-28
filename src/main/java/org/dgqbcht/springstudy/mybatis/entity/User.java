@@ -1,4 +1,4 @@
-package org.dgqbcht.springstudy.mybatis.origin;
+package org.dgqbcht.springstudy.mybatis.entity;
 
 import java.io.Serializable;
 

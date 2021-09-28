@@ -1,4 +1,6 @@
-package org.dgqbcht.springstudy.mybatis.origin;
+package org.dgqbcht.springstudy.mybatis.dao;
+
+import org.dgqbcht.springstudy.mybatis.entity.User;
 
 public interface UserDAO {
     void insert(User user);

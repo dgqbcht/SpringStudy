@@ -1,15 +1,16 @@
-package org.dgqbcht.springstudy.mybatis.origin;
+package org.dgqbcht.springstudy.mybatis;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.junit.BeforeClass;
+import org.dgqbcht.springstudy.mybatis.dao.UserDAO;
+import org.dgqbcht.springstudy.mybatis.entity.User;
 import org.junit.Test;
 
 import java.io.InputStream;
 
-public class TestMyBatis {
+public class TestMyBatisOrigin {
 
 
     /**

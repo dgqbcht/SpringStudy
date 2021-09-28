@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
+>
+    <!--参数化读取配置文件-->
+    <context:property-placeholder location="classpath:db.properties"/>
+    <!--连接池-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+    </bean>
+    <!--创建SqlSessionFactoryBean-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="typeAliasesPackage" value="org.dgqbcht.springstudy.mybatis.entity"></property>
+        <property name="mapperLocations">
+            <list>
+                <value>classpath:mybatis/mapper/*Mapper.xml</value>
+            </list>
+        </property>
+    </bean>
+    <!--创建DAO对象 MapperScannerConfigure-->
+    <bean id="scanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+        <property name="basePackage" value="org.dgqbcht.springstudy.mybatis.dao"></property>
+    </bean>
+    <!--DataSourceTransactionManager-->
+    <bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!--proxy-target-class
+        false 底层使用JDK产生代理对象
+        true  底层使用Cglib产生代理对象
+    -->
+    <tx:annotation-driven transaction-manager="dataSourceTransactionManager"/>
+    <!-- service实现类-->
+    <bean id="userService" class="org.dgqbcht.springstudy.mybatis.service.annotation.UserServiceImpl">
+        <property name="userDAO" ref="userDAO"/>
+    </bean>
+</beans>
