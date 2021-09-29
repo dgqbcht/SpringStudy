@@ -5,7 +5,11 @@
 
     <groupId>org.dgqbcht</groupId>
     <artifactId>SpringStudy</artifactId>
+    <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
+    <modules>
+        <module>01_SpringBeanMethod</module>
+    </modules>
     <name>SpringStudy</name>
     <description>SpringStudy</description>
     <properties>

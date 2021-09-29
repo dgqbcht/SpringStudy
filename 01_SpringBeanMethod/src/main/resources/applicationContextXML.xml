@@ -3,6 +3,6 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="person1" name="p1,pp1" class="org.dgqbcht.springstudy.simplebean.Person1" />
-    <bean name="p2,pp2" class="org.dgqbcht.springstudy.simplebean.Person1" />
+    <bean id="person" name="p,pp" class="org.dgqbcht.springstudy.pojo.xml.Person" />
+    <bean name="p1,pp1" class="org.dgqbcht.springstudy.pojo.xml.Person" />
 </beans>
